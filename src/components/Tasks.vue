@@ -1,22 +1,22 @@
 <template>
   <div>
     <button class="button logout" v-on:click="logout">Logout</button>
-    <article class="covers" v-for="(comic, idx) in comics" :key="idx">
+    <article class="covers" v-for="(task, idx) in tasks" :key="idx">
       <div>
-        <img style="margin: 10px" :src="comic.image" height="291px" width="192px">
-        <p >{{ comic.name }}</p>
+        <img style="margin: 10px" :src="task.image" height="291px" width="192px">
+        <p >{{ task.name }}</p>
         <hr>
-        <button class="button" @click="deleteComic(comic.id)">
+        <button class="button" @click="deleteTask(task.id)">
           Delete
         </button>
       </div>
     </article>
 
-    <form @submit="addComic(name, image)">
-      <h2>Add a New Comic Cover</h2>
-      <input v-model="name" placeholder="Comic Name" class="input" required>
-      <input v-model="image" placeholder="Comic Image URL" class="input" required>
-      <button type="submit" class="button">Add New Comic</button>
+    <form @submit="addTask(name, image)">
+      <h2>Add a New Task Cover</h2>
+      <input v-model="name" placeholder="Task Name" class="input" required>
+      <input v-model="image" placeholder="Task Image URL" class="input" required>
+      <button type="submit" class="button">Add New Task</button>
     </form>
   </div>
 </template>
@@ -26,29 +26,29 @@ import firebase from 'firebase'
 import { db } from '../main'
 
 export default {
-  name: 'Comics',
+  name: 'Tasks',
   data () {
     return {
-      comics: [],
+      tasks: [],
       name: '',
       image: ''
     }
   },
   firestore () {
     return {
-      comics: db.collection('comics').orderBy('createdAt')
+      tasks: db.collection('tasks').orderBy('createdAt')
     }
   },
   methods: {
-    addComic (name, image) {
+    addTask (name, image) {
       const createdAt = new Date()
-      db.collection('comics').add({ name, image, createdAt })
+      db.collection('tasks').add({ name, image, createdAt })
       // Clear values
       this.name = ''
       this.image = ''
     },
-    deleteComic (id) {
-      db.collection('comics').doc(id).delete()
+    deleteTask (id) {
+      db.collection('tasks').doc(id).delete()
     },
     logout () {
       firebase.auth().signOut().then(() => {

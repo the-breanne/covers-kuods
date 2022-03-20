@@ -15,7 +15,7 @@
     },
     methods: {
       notFound () {
-        this.$router.replace('/comics')
+        this.$router.replace('/tasks')
       }
     }
   }

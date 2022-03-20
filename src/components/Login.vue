@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <img src="../assets/dc_logo.jpg" width="300px">
-    <h3>DC Comics Rebirth - Covers</h3>
+    <h3>Kudos</h3>
     <input 
       type="text" 
       v-model="email" 
@@ -37,7 +37,7 @@
     methods: {
       login () {
         firebase.auth().signInWithEmailAndPassword(this.email, this.password).then((user) => {
-          this.$router.replace('/comics')
+          this.$router.replace('/tasks')
         }).catch((err) => {
           alert(err.message)
         })

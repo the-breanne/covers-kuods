@@ -10,12 +10,12 @@ import 'firebase/firestore'
 Vue.use(VueFire)
 
 firebase.initializeApp({
-  apiKey: 'AIzaSyD3dxdxD3Wux-XUj_aaFF5tmVeyQtnelM4',
-  authDomain: 'vue-app-7f475.firebaseapp.com',
-  databaseURL: 'https://vue-app-7f475.firebaseio.com',
-  projectId: 'vue-app-7f475',
-  storageBucket: 'vue-app-7f475.appspot.com',
-  messagingSenderId: '326758384574'
+  apiKey: 'AIzaSyDhTP6sNSs3c4n55V69tM1dH--pBgEjUtE',
+  authDomain: 'soft-kudos.firebaseapp.com',
+  projectId: 'soft-kudos',
+  storageBucket: 'soft-kudos.appspot.com',
+  messagingSenderId: '272127081098',
+  appId: '1:272127081098:web:622bb52ed1aaf7c8f20b73'
 })
 
 export const db = firebase.firestore()
